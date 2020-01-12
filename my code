@@ -1,0 +1,47 @@
+int column [16]={13,12,11,10,9,8,7,6,5,4,3,2,1,A5,A4};
+int layer[4] = {A0,A1,A2,A3};
+int i = 0;
+void setup() {
+  // put your setup code here, to run once:
+for (int i=0;i<16;i++){
+  pinMode(column[i],OUTPUT);}
+for(int i = 0; i<4; i++){
+  pinMode(layer[i], OUTPUT);}
+ }
+
+void loop() {
+  // put your main code here, to run repeatedly:
+ turnEverythingOff();
+ delay(100);
+ spiral(); 
+}
+
+
+void turnEverythingOff()
+ {
+   for(int i = 0; i<16; i++)
+   {
+     digitalWrite(column[i], 1);
+   }
+   for(int i = 0; i<4; i++)
+   {
+     digitalWrite(layer[i], 1);
+   }
+ }
+ 
+ 
+ void spiral(){
+  for (int x = 0;x!=5;x++){
+    for (int i = 0; i<16;i++){
+      digitalWrite(layer[i],0);
+      for(int j = 0;j<4;j++){
+        if (j%2==0){
+          digitalWrite(column[j],1);
+        }
+        else{digitalWrite(column[j],0);}
+      }}
+    delay (100);
+    }
+    delay(100); }
+
+  
